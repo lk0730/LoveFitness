@@ -1,22 +1,42 @@
-<scroll-view class="c-minheight wx-scroll-view_6Bnkj2" data-c_e_id="wx_scroll_view_fcc22f86" lower-threshold="50" scroll-y="True" style="overflow-x: hidden; overflow-y: auto; " upper-threshold="50">
-    <navigator class="wx-navigator_tealist_item" data-c_e_id="wx_navigator_46b77b4d" hover-class="navigator-hover" url="../detial/detial">
-    <view class="weui-panel">
-        <view class="weui-panel__hd">教练列表</view>
-        <view class="weui-panel__bd">
-        
-            <image class="wx-image_movielist_item_cover" data-c_e_id="wx_image_3f067087" mode="scaleToFill" src="http://pic.lvmama.com//uploads/pc/place2/2017-05-25/a33272f0-69bc-4037-ae5d-fe0a21e8c9ce_180_120.jpg" style="background-size: 100% 100%; background-position: 0% 0%; background-repeat: no-repeat; background-image: url(http://pic.lvmama.com//uploads/pc/place2/2017-05-25/a33272f0-69bc-4037-ae5d-fe0a21e8c9ce_180_120.jpg); "/>
-          <view class="wx-image_tealist_item_title" wx:for="{{teaList}}" wx:key="objectId">
-            <view class="c-minheight wx-view_6zMKSh" data-c_e_id="wx_view_f95254a1">
-                <text class="c-block wx-image_tealist_item_title" data-c_e_id="wx_text_00e25920">{{item.tea_name}}</text>
-                <text class="c-block wx-image_tealist_item_star" data-c_e_id="wx_text_53bda5e3">{{item.tea_star}}</text>
-                <text class="c-block wx-image_tealist_item_desc" data-c_e_id="wx_text_63f36d55">{{item.tea_desc}}</text>
-                <text class="c-block wx-image_tealist_item_price" data-c_e_id="wx_text_3b979059">{{item.price}}</text>
+<view class="page">     
+      <view class="page__bd">
+      <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                    <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+                    <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                        <icon type="clear" size="14"></icon>
+                    </view>
+                </view>
+                <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                    <icon class="weui-icon-search" type="search" size="14"></icon>
+                    <view class="weui-search-bar__text">搜索</view>
+                </label>
             </view>
-           
-
-      </view>
+            <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+        </view>
+        <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__hd">教练列表</view>
+            <view class="weui-panel__bd" wx:for="{{teaList}}" wx:key="objectId">
+                <navigator url="../detail/detail" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <image class="weui-media-box__thumb" src="{{item.tea_pic_url}}" />
+                    </view>
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-media-box__title">{{item.tea_name}}</view>
+                        <view class="weui-media-box__desc">{{item.tea_star}}</view>
+                        <view class="weui-media-box__desc">{{item.tea_desc}}</view>
+                        <view class="weui-media-box__desc">{{item.price}}</view>
+                    </view>
+                </navigator>
+            </view>
+            <view class="weui-panel__ft">
+                <view class="weui-cell weui-cell_access weui-cell_link">
+                    <view class="weui-cell__bd">查看更多</view>
+                    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                </view>
+            </view>
+        </view>
     </view>
-     </view> 
-        
-    </navigator>
-</scroll-view>
+</view>

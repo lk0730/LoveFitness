@@ -9,9 +9,9 @@
     "backgroundTextStyle": "light"
   },
   "pages": [
+    "pages/detail/detail",
     "pages/list/list",
     "pages/index/index",
-    "pages/detial/detial",
     "pages/myprofile/myprofile"
   ],
   "tabBar": {
